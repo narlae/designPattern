@@ -1,6 +1,6 @@
-package Character;
+package StrategyPattern.Character;
 
-import Behavior.Weapon.SwordBehavior;
+import StrategyPattern.Behavior.Weapon.SwordBehavior;
 
 public class Knight extends Character{
 

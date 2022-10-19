@@ -1,4 +1,4 @@
-package Behavior.Weapon;
+package StrategyPattern.Behavior.Weapon;
 
 public class SwordBehavior implements WeaponBehavior{
     @Override

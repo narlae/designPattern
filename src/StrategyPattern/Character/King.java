@@ -1,6 +1,6 @@
-package Character;
+package StrategyPattern.Character;
 
-import Behavior.Weapon.KnifeBehavior;
+import StrategyPattern.Behavior.Weapon.KnifeBehavior;
 
 public class King extends Character{
 
