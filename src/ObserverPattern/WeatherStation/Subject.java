@@ -1,4 +1,4 @@
-package ObserverPattern;
+package ObserverPattern.WeatherStation;
 
 public interface Subject {
     public void registerObserver(Observer o);

@@ -1,4 +1,4 @@
-package ObserverPattern;
+package ObserverPattern.WeatherStation;
 
 public class CurrentConditionsDisplay implements Observer, DisplayElement{
     private float temperature;
@@ -12,14 +12,13 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement{
 
     @Override
     public void display() {
-        System.out.println("현재 상태: 온도 " + temperature
-                + "F, 습도 " + humidity + "%");
+        System.out.println("현재 상태: 온도 " + temperature + "F, 습도 " + humidity + "%");
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature = temp;
-        this.humidity = humidity;
+    public void update() {
+        this.temperature = weatherData.getTemperature();
+        this.humidity = weatherData.getHumidity();
         display();
     }
 }
