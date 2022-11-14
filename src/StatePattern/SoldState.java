@@ -34,6 +34,11 @@ public class SoldState implements State{
     }
 
     @Override
+    public void refill() {
+        System.out.println("아직 알맹이가 차있습니다.");
+    }
+
+    @Override
     public String toString() {
         return "알맹이 배출중입니다.";
     }

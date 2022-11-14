@@ -29,6 +29,11 @@ public class NoQuarterState implements State{
     }
 
     @Override
+    public void refill() {
+        System.out.println("아직 알맹이가 차있습니다.");
+    }
+
+    @Override
     public String toString() {
         return "동전 투입 대기중";
     }

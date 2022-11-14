@@ -38,6 +38,11 @@ public class HasQuarterState implements State{
     }
 
     @Override
+    public void refill() {
+        System.out.println("아직 알맹이가 차있습니다.");
+    }
+
+    @Override
     public String toString() {
         return "손잡이 돌리기 대기";
     }

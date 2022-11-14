@@ -50,6 +50,12 @@ public class GumballMachine {
         }
     }
 
+    void refill(int numberGumballs) {
+        count += numberGumballs;
+        System.out.printf("알맹이가 %d개 채워졌습니다.", numberGumballs);
+        state.refill();
+    }
+
     public State getSoldOutState() {
         return soldOutState;
     }
