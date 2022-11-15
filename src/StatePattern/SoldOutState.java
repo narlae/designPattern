@@ -1,7 +1,8 @@
 package StatePattern;
 
 public class SoldOutState implements State{
-    GumballMachine gumballMachine;
+    transient GumballMachine gumballMachine;
+    private static final long serialVersionUID = 2L;
 
     public SoldOutState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;

@@ -1,7 +1,10 @@
 package StatePattern;
 
-public class GumballMachine {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
+    private static final long serialVersionUID = 2L;
     State soldOutState;
     State noQuarterState;
     State hasQuarterState;
@@ -10,8 +13,9 @@ public class GumballMachine {
 
     State state;
     int count = 0;
+    String location;
 
-    public GumballMachine(int numberGumballs) {
+    public GumballMachine(int numberGumballs) throws RemoteException{
         this.soldOutState = new SoldOutState(this);
         this.noQuarterState = new NoQuarterState(this);
         this.hasQuarterState = new HasQuarterState(this);
@@ -26,6 +30,11 @@ public class GumballMachine {
         }
     }
 
+    public GumballMachine(int count, String location) throws RemoteException {
+        this.count = count;
+        this.location = location;
+    }
+
     public void insertQuarter() {
         state.insertQuarter();
     }
@@ -37,6 +46,10 @@ public class GumballMachine {
     public void turnCrank() {
         state.turnCrank();
         state.dispense();
+    }
+
+    public State getState() {
+        return state;
     }
 
     void setState(State state) {
@@ -80,13 +93,15 @@ public class GumballMachine {
         return winnerState;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     @Override
     public String toString() {
         return "\n주식회사 왕뽑기\n" +
                 "자바로 돌아가는 최신형 뽑기 기계\n" +
                 "남은 개수: "+ getCount()+"\n" + state+"\n"
                 ;
-
-
     }
 }

@@ -2,7 +2,8 @@ package StatePattern;
 
 public class WinnerState implements State{
 
-    GumballMachine gumballMachine;
+    transient GumballMachine gumballMachine;
+    private static final long serialVersionUID = 2L;
 
     public WinnerState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
@@ -39,5 +40,10 @@ public class WinnerState implements State{
                 gumballMachine.setState(gumballMachine.getSoldOutState());
             }
         }
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("아직 알맹이가 차있습니다.");
     }
 }
